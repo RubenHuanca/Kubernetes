@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-dni-deployment
+  labels:
+    app: api-dni
+spec:
+  replicas: 10
+  selector:
+    matchLabels:
+      app: api-dni
+  template:
+    metadata:
+      labels:
+        app: api-dni
+    spec:
+      containers:
+      - name: api-dni
+        image: huanca/api-dni:1.0
+        ports:
+        - containerPort: 80
